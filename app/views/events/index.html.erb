@@ -2,7 +2,9 @@
 
 <div class="contents row" >
   <% @events.each do |event| %>
-   <div class="content_post" style="background-image: url(<%= event.image%>);">
+    <div class="content_post" style="background-image: url(<%= event.image%>);">
+      <% if circle_signed_in? && event.circle_id == current_circle_id %>
+        <div class="more">
     <p><%= event.name %></p>
   <% end %>
 </div>

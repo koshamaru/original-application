@@ -1,0 +1,8 @@
+<%#投稿されたイベントが一覧で表示される%>
+
+<div class="contents row" >
+  <% @events.each do |event| %>
+   <div class="content_post" style="background-image: url(<%= event.image%>);">
+    <p><%= event.name %></p>
+  <% end %>
+</div>

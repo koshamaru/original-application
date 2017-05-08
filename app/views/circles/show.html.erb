@@ -1,0 +1,10 @@
+<%#サークルのマイページ%>
+<div class="contents row" >
+    <p><%= @circlename %>さんの情報</p>
+    <%# binding.pry %>
+    <p><%= @circle.circlename %></p>
+    <p><%= @circle.representativename %></p>
+    <% @circle.events.each do |event| %>
+      <%= event.name %><br>
+    <% end %>
+  </div>

@@ -1,0 +1,6 @@
+<%#サークル一覧ページ（登録しているサークルが一覧で出てくる）%>
+<div class="contents row" >
+  <% @circles.each do |circle| %>
+    <p><%= circle.circlename %></p>
+  <% end %>
+</div>

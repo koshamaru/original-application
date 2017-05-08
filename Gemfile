@@ -47,5 +47,7 @@ end
 
 gem'devise'
 gem'pry-rails'
+gem 'sprockets', '2.11.0'
+
 
 

@@ -11,23 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504062017) do
+ActiveRecord::Schema.define(version: 20170509065518) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "circles", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255,   default: "", null: false
+    t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "circlename",             limit: 255
     t.string   "representativename",     limit: 255
+    t.integer  "university_id",          limit: 4
+    t.string   "Category1",              limit: 255
+    t.string   "Category2",              limit: 255
+    t.string   "Category3",              limit: 255
+    t.string   "form",                   limit: 255
+    t.text     "feature1",               limit: 65535
+    t.text     "feature2",               limit: 65535
+    t.text     "feature3",               limit: 65535
   end
 
   add_index "circles", ["email"], name: "index_circles_on_email", unique: true, using: :btree
@@ -41,6 +55,18 @@ ActiveRecord::Schema.define(version: 20170504062017) do
     t.datetime "updated_at",               null: false
     t.integer  "circle_id",  limit: 4
     t.datetime "eventdate"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "forms", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "students", force: :cascade do |t|
@@ -63,5 +89,11 @@ ActiveRecord::Schema.define(version: 20170504062017) do
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
+
+  create_table "universities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
 end

@@ -44,7 +44,9 @@
             <ul class="user__info">
               <li>
                 <a href="/circles/<%= current_circle.id %>">mypage</a>
+                <a href="/circles/<%= current_circle.id %>/edit">mypageを編集</a>
                 <a href="/events/new">イベント投稿</a>
+                <a href="/events/">イベント一覧</a>
                 <a href="/students/">学生一覧</a>
           <%= link_to "ログアウト", destroy_student_session_path, method: :delete %>
           </li>

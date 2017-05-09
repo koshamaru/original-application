@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
+
   def show
-    @nickname = current_student.nickname
-    @students = Student.where(student_id: current_student.id)
+    @student = Student.find(params[:id])
   end
 
   def index

@@ -1,6 +1,6 @@
 <%#登録している学生が一覧で表示されるページ%>
 <div class="contents row" >
   <% @students.each do |student| %>
-    <p><%= student.nickname %></p>
+      <%= link_to "#{student.nickname}", "/students/#{student.id}", method: :get %><br>
   <% end %>
 </div>

@@ -2,9 +2,11 @@
 <div class="contents row" >
     <p><%= @circlename %>さんの情報</p>
     <%# binding.pry %>
-    <p><%= @circle.circlename %></p>
-    <p><%= @circle.representativename %></p>
+    <p>サークル名 :<%= @circle.circlename %></p>
+    <p>代表者名  :<%= @circle.representativename %></p>
     <% @circle.events.each do |event| %>
+        <div class="content_post" style="background-image: url(<%= @event.image%>); height: 100px;">
+        </div>
       <%= event.name %><br>
     <% end %>
-  </div>
+</div>

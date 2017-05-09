@@ -7,6 +7,7 @@ class Circles::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+
   # POST /resource
   # def create
   #   super

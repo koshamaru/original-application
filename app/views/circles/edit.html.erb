@@ -1,0 +1,75 @@
+<% form_for @circle , :url => {:action => 'update'} do |f| %>
+
+  <div class="field">
+    <%= f.label :circlename %> <em>(30 characters maximum)</em><br />
+    <%= f.text_field :circlename, autofocus: true, maxlength: "30" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :representativename %> <em>(8 characters maximum)</em><br />
+    <%= f.text_field :representativename, autofocus: true, maxlength: "8" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :university %> <br />
+
+  <%= f.collection_select :university_id, University.all, :id, :name %>
+
+  <div class="field">
+    <%= f.label :category1 %> <br />
+
+    <%= f.collection_select :Category1, Category.all, :id, :name %>
+
+  <div class="field">
+    <%= f.label :category2 %> <br />
+
+    <%= f.collection_select :Category2, Category.all, :id, :name %>
+
+  <div class="field">
+    <%= f.label :category3 %> <br />
+
+    <%= f.collection_select :Category3, Category.all, :id, :name %>
+
+  <div class="field">
+    <%= f.label :form %> <br />
+
+    <%= f.collection_select :form, Form.all, :id, :name %>
+
+  <div class="field">
+    <%= f.label :feature1 %> <br />
+
+    <%= f.collection_select :feature1, Feature.all, :id, :content %>
+
+  <div class="field">
+    <%= f.label :feature2 %> <br />
+
+    <%= f.collection_select :feature2, Feature.all, :id, :content %>
+
+  <div class="field">
+    <%= f.label :feature3 %> <br />
+
+    <%= f.collection_select :feature3, Feature.all, :id, :content %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+  <%= f.label :password %>
+  <% if @validatable %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "update" %>
+  </div>
+
+<% end %>

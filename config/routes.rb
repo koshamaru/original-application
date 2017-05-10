@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "top#index"
+
   devise_for :circles, controllers: {
   sessions:      'circles/sessions',
   passwords:     'circles/passwords',
@@ -10,16 +11,26 @@ Rails.application.routes.draw do
   passwords:     'students/passwords',
   registrations: 'students/registrations'
 }
-  get 'circles/:id/edit'  => 'circles#edit'
-  get 'students/:id' => 'students#show'
-  get 'circles/:id' => 'circles#show'
-  
+
   get 'circles'     => 'circles#index'
   get 'students'    => 'students#index'
+
+  get 'circles/:id/edit'  => 'circles#edit'
+  # patch 'circles/update' => 'circles#update'
+  patch 'circles/:id' => 'circles#update'
+
+  get 'students/:id' => 'students#show'
+  get 'circles/:id' => 'circles#show'
+
+  get 'students/:id/edit'  => 'students#edit'
+  patch 'students/:id' => 'students#update'
+
+  get 'events/search' => 'events#search'
+
   resources :events
 
-  get 'circles/update' => 'circles#update'
-
+  
+  
   
 
   # The priority is based upon order of creation: first created -> highest priority.

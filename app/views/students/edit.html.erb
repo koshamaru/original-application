@@ -1,17 +1,17 @@
 <div class="contents row" >
 
-  <%= form_for @circle , :url => {:action => 'update'} do |f| %>
+  <%= form_for @student , :url => {:action => 'update'} do |f| %>
 
 
   <div class="field">
-    <%= f.label :circlename %> <em>(30 characters maximum)</em><br />
-    <%= f.text_field :circlename, autofocus: true, maxlength: "30" %>
+    <%= f.label :nickname %> <em>(30 characters maximum)</em><br />
+    <%= f.text_field :nickname, autofocus: true, maxlength: "30" %>
   </div>
 
   <div class="field">
-    <%= f.label :representativename %> <em>(8 characters maximum)</em><br />
-    <%= f.text_field :representativename, autofocus: true, maxlength: "8" %>
-  </div>
+    <%= f.label :grade %> <br />
+
+  <%= f.collection_select :grade, Grade.all, :id, :grade %>
 
   <div class="field">
     <%= f.label :university %> <br />
@@ -21,37 +21,32 @@
   <div class="field">
     <%= f.label :category1 %> <br />
 
-    <%= f.collection_select :Category1, Category.all, :id, :name %>
+    <%= f.collection_select :category1, Category.all, :id, :name %>
 
   <div class="field">
     <%= f.label :category2 %> <br />
 
-    <%= f.collection_select :Category2, Category.all, :id, :name %>
+    <%= f.collection_select :category2, Category.all, :id, :name %>
 
   <div class="field">
     <%= f.label :category3 %> <br />
 
-    <%= f.collection_select :Category3, Category.all, :id, :name %>
+    <%= f.collection_select :category3, Category.all, :id, :name %>
 
   <div class="field">
-    <%= f.label :form %> <br />
+    <%= f.label :favorite1 %> <br />
 
-    <%= f.collection_select :form, Form.all, :id, :name %>
-
-  <div class="field">
-    <%= f.label :feature1 %> <br />
-
-    <%= f.collection_select :feature1, Feature.all, :id, :content %>
+    <%= f.collection_select :favorite1, Feature.all, :id, :content %>
 
   <div class="field">
-    <%= f.label :feature2 %> <br />
+    <%= f.label :favorite2 %> <br />
 
-    <%= f.collection_select :feature2, Feature.all, :id, :content %>
+    <%= f.collection_select :favorite2, Feature.all, :id, :content %>
 
   <div class="field">
-    <%= f.label :feature3 %> <br />
+    <%= f.label :favorite3 %> <br />
 
-    <%= f.collection_select :feature3, Feature.all, :id, :content %>
+    <%= f.collection_select :favorite3, Feature.all, :id, :content %>
 
   <div class="field">
     <%= f.label :email %><br />

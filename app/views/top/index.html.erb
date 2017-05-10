@@ -1,2 +1,6 @@
 <p>サークル検索　　イベント検索</p>
 
+<%= form_tag('/events/search', method: :get) do %>
+
+  <input class="search__query" name="keyword" placeholder="大学名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+  <% end %>

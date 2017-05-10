@@ -20,10 +20,16 @@ class CirclesController < ApplicationController
   end
 
   def update
-    @circle = Circle.find(params[:id])
+
+    circle = Circle.find(params[:id])
+    circle.update(update_params) if circle.id == current_circle.id
+    sign_in(circle, :bypass => true)
+  end
+
+
+  private
+  def update_params
+  params.require(:circle).permit(:circlename, :representativename, :university_id, :Category1, :Category2, :Category3, :form, :feature1, :feature2, :feature3, :email, :password)
   end
 
 end
-
-
-

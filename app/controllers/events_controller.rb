@@ -32,9 +32,13 @@ class EventsController < ApplicationController
       end
     end
 
+    def search
+       @events = Event.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    end
+
     private
     def event_params
-      params.permit(:name, :image, :text, :eventdate)
+      params.permit(:name, :image, :text, :eventdate, :university_id)
     end
 
 end

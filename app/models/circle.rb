@@ -5,4 +5,7 @@ class Circle < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events
   belongs_to :university
+
+  
+
 end

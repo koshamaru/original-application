@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509065518) do
+ActiveRecord::Schema.define(version: 20170510081126) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -48,13 +48,14 @@ ActiveRecord::Schema.define(version: 20170509065518) do
   add_index "circles", ["reset_password_token"], name: "index_circles_on_reset_password_token", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.text     "text",       limit: 65535
-    t.text     "image",      limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "circle_id",  limit: 4
+    t.string   "name",          limit: 255
+    t.text     "text",          limit: 65535
+    t.text     "image",         limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "circle_id",     limit: 4
     t.datetime "eventdate"
+    t.integer  "university_id", limit: 4
   end
 
   create_table "features", force: :cascade do |t|
@@ -67,6 +68,12 @@ ActiveRecord::Schema.define(version: 20170509065518) do
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "grade",      limit: 255
   end
 
   create_table "students", force: :cascade do |t|
@@ -83,8 +90,14 @@ ActiveRecord::Schema.define(version: 20170509065518) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "nickname",               limit: 255
-    t.string   "university",             limit: 255
     t.string   "grade",                  limit: 255
+    t.integer  "university_id",          limit: 4
+    t.integer  "category1",              limit: 4
+    t.integer  "category2",              limit: 4
+    t.integer  "category3",              limit: 4
+    t.integer  "favorite1",              limit: 4
+    t.integer  "favorite2",              limit: 4
+    t.integer  "favorite3",              limit: 4
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
